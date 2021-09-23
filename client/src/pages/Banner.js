@@ -195,7 +195,7 @@ function Banner() {
         
         </div> */}
       </div>
-      <div className="all-details absolute top-1/4 left-20  ">
+      <div className="all-details absolute top-1/4 left-20 text-3xl">
         <div className="banner__contents text-white">
           <h1 className="banner__title" ref={(el) => (title = el)}>
             {movie?.title || movie?.name || movie?.original_name}
@@ -213,7 +213,7 @@ function Banner() {
         </div>
 
         <h1
-          className="banner__description overflow-hidden mb-10 pb-7 w-auto"
+          className="banner__description overflow-hidden mb-10 pb-9 w-auto"
           ref={(el) => (description = el)}
         >
           {truncate(movie?.overview, 250)}
