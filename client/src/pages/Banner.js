@@ -4,7 +4,7 @@ import requests from "./requests";
 import "./Banner.css";
 import gsap, { timeline, TweenMax, Expo } from "gsap";
 
-import anime from 'animejs';
+import anime from "animejs";
 import { Link } from "react-router-dom";
 // import Rating from "react-rating";
 
@@ -44,13 +44,13 @@ function Banner() {
     // });
     // TweenMax.to(".color_red3", 1.8, {
     //   y: "-100%",
-      
+
     //   display:"none",
     //   ease: Expo.easeInOut,
     // });
     // TweenMax.to(".color_red4", 2.8, {
     //   y: "-100%",
-      
+
     //   display:"none",
     //   ease: Expo.easeInOut,
     // });
@@ -82,7 +82,7 @@ function Banner() {
       2,
       {
         opacity: 1,
-        
+
         ease: Expo.easeInOut,
       },
       "-=1"
@@ -164,13 +164,11 @@ function Banner() {
 
   return (
     <header
-      className="banner"
-      ref={el => background = el}
+      className="banner relative hidden md:block lg:flex  bg-cover h-screen bg-auto bg-center-center bg-no-repeat"
+      ref={(el) => (background = el)}
       style={{
-        background: "cover",
         backgroundImage: `url(${base_url}${movie?.backdrop_path}
         )`,
-        backgroundPosition: "center center",
       }}
     >
       <div>
@@ -197,12 +195,12 @@ function Banner() {
         
         </div> */}
       </div>
-      <div className="all-details">
-        <div className="banner__contents">
+      <div className="all-details absolute top-1/4 left-20  ">
+        <div className="banner__contents text-white">
           <h1 className="banner__title" ref={(el) => (title = el)}>
             {movie?.title || movie?.name || movie?.original_name}
           </h1>
-          <div className="start__details" ref={(el) => (stars = el)}>
+          <div className="start__details mt-10" ref={(el) => (stars = el)}>
             <div className="reviews">
               <h1 className="banner_stars">
                 {/* <Rating readonly stop="5"  initialRating={Math.floor(movie?.vote_average /2)} /> */}
@@ -214,14 +212,20 @@ function Banner() {
           </div>
         </div>
 
-        <h1 className="banner__description" ref={(el) => (description = el)}>
+        <h1
+          className="banner__description overflow-hidden mb-10 pb-7 w-auto"
+          ref={(el) => (description = el)}
+        >
           {truncate(movie?.overview, 250)}
         </h1>
         <div className="banner__buttons">
-        <Link style={{ textDecoration: 'none' ,color:"white"}} to={`/movie/${movie.id}`}  >
-          <button className="banner__button" ref={(el) => (button1 = el)}>
-            Play
-          </button>
+          <Link
+            style={{ textDecoration: "none", color: "white" }}
+            to={`/movie/${movie.id}`}
+          >
+            <button className="banner__button" ref={(el) => (button1 = el)}>
+              Play
+            </button>
           </Link>
           <button className="banner__button" ref={(el) => (button = el)}>
             My List

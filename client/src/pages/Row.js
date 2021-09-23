@@ -4,19 +4,16 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "./axios";
 import "./Row.css";
 import { Link } from "react-router-dom";
-import gsap, {TweenMax ,Expo, } from 'gsap';
-
-
+import gsap, { TweenMax, Expo } from "gsap";
 
 const base_url = "https://image.tmdb.org/t/p/original/";
 
-
-function Row({title, fetchUrlMovie, isLargeRow }) {
+function Row({ title, fetchUrlMovie, isLargeRow }) {
   const [movies, setMovies] = useState([]);
   // const [tvs, setTvs] = useState([]);
   // const [trailerUrl, setTrailerUrl] = useState("");
-  let tl = gsap.timeline({defaults: {ease: "SlowMo.easeOut"}})
-  let imgs = useRef(null)
+  let tl = gsap.timeline({ defaults: { ease: "SlowMo.easeOut" } });
+  let imgs = useRef(null);
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrlMovie);
@@ -26,7 +23,7 @@ function Row({title, fetchUrlMovie, isLargeRow }) {
     console.log(fetchUrlMovie);
     fetchData();
   }, [fetchUrlMovie]);
-  
+
   // useEffect(() => {
   //   async function fetchTv() {
   //     const request = await axios.get(fetchUrlTv);
@@ -37,22 +34,15 @@ function Row({title, fetchUrlMovie, isLargeRow }) {
   //   fetchTv();
   // }, [fetchUrlTv]);
 
-
-  useEffect(() =>{
-    
-    gsap.from(
-      imgs,
-      {
-          opacity: 1,
-          stagger:1.2,
-          scale: 1.1,
-          delay: 2,
-          duration:3,
-      }
-     
-    );
-  })
-
+  useEffect(() => {
+    gsap.from(imgs, {
+      opacity: 1,
+      stagger: 1.2,
+      scale: 1.1,
+      delay: 2,
+      duration: 3,
+    });
+  });
 
   // const opts = {
   //   height: "390",
@@ -75,43 +65,42 @@ function Row({title, fetchUrlMovie, isLargeRow }) {
   //   }
   // };
   return (
-
-    <div className="row">
+    <div className="row  mt-16 ml-20 text-white">
       {/* {Title} */}
-      <h2 className="title" >{title}</h2>
-      
-      {/* {Container -> Posters} */}
-      
-      <div className="row__posters" ref={el => imgs = el}>
-      
-        {movies.map((movie) => (
-          <Link style={{ textDecoration: 'none' ,color:"white"}}  to={`/movie/${movie.id}`}  >
-            
-            <div className="poster" >
-            <img
-              key={movie.id}
-              
-              // onClick={() => handleClick(movie)}
-              className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-              src={`${base_url}${
-                isLargeRow ? movie.poster_path : movie.backdrop_path
-              }`}
-              alt={movie.name}
-              
-            />
-            
-            <div className="onhover" >
-            <h1>{movie.title}</h1>
-            <h1>{movie.overview}</h1>
-            <h1>{movie.media_type}</h1>
-            </div>
-            
+      <h2 className="title">{title}</h2>
 
+      {/* {Container -> Posters} */}
+
+      <div
+        className="row__posters  flex   mt-10 overflow-x-scroll overflow-y-hidden"
+        ref={(el) => (imgs = el)}
+      >
+        {movies.map((movie) => (
+          <Link
+            style={{ textDecoration: "none", color: "white" }}
+            to={`/movie/${movie.id}`}
+          >
+            <div className="poster flex-grow h-auto w-52 ml-1 ">
+              <img
+                key={movie.id}
+                // onClick={() => handleClick(movie)}
+                className={`row__poster p-3 ${
+                  isLargeRow && "row__posterLarge "
+                }`}
+                src={`${base_url}${
+                  isLargeRow ? movie.poster_path : movie.backdrop_path
+                }`}
+                alt={movie.name}
+              />
+
+              {/* <div className="onhover">
+                <h1>{movie.title}</h1>
+                <h1>{movie.overview}</h1>
+                <h1>{movie.media_type}</h1>
+              </div> */}
             </div>
-            
           </Link>
-        )
-        )}
+        ))}
         {/* {tvs.map((movie) => (
           <Link to={`/details/${movie.id}`}  >
             
@@ -138,12 +127,10 @@ function Row({title, fetchUrlMovie, isLargeRow }) {
           </Link>
         )
         )} */}
-        
       </div>
-      
+
       {/* {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />} */}
     </div>
-    
   );
 }
 
