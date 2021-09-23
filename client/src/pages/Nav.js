@@ -27,7 +27,6 @@ function Nav({ fetchUrl }) {
 
   const handleOnChange = (e) => {
     setSearchTeam(e.target.value);
-    
   };
 
   return (
@@ -43,26 +42,36 @@ function Nav({ fetchUrl }) {
         </Link>
         <ul>
           <li>
-            <a className="text-decoration-none" href="/">Home</a>
+            <a className="text-decoration-none" href="/">
+              Home
+            </a>
           </li>
           <li>
-            <a className="text-decoration-none" href="/mylist">My List</a>
+            <a className="text-decoration-none" href="/mylist">
+              My List
+            </a>
           </li>
           <li>
-            <a className="text-decoration-none" href="/signin">Log In</a>
+            <a className="text-decoration-none" href="/signin">
+              Log In
+            </a>
           </li>
           <li>
-            <a className="text-decoration-none" href="/list">List</a>
+            <a className="text-decoration-none" href="/list">
+              List
+            </a>
           </li>
           <li>
-            <a className="text-decoration-none" href="/foobar">Foobar</a>
+            <a className="text-decoration-none" href="/foobar">
+              Foobar
+            </a>
           </li>
         </ul>
       </div>
       <div>
         <form onSubmit={handleOnSubmit}>
           <input
-            className="search__bar"
+            className="search__bar "
             type="search"
             placeholder="Search-bar"
             value={searchTerm}
@@ -70,7 +79,7 @@ function Nav({ fetchUrl }) {
           />
         </form>
       </div>
-    </div >
+    </div>
   );
 }
 

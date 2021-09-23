@@ -195,13 +195,13 @@ function Banner() {
         
         </div> */}
       </div>
-      <div className="all-details absolute top-1/4 left-20 text-3xl">
+      <div className="all-details absolute top-1/4 left-20 text-3xl font-mono z-20">
         <div className="banner__contents text-white">
           <h1 className="banner__title" ref={(el) => (title = el)}>
             {movie?.title || movie?.name || movie?.original_name}
           </h1>
           <div className="start__details mt-10" ref={(el) => (stars = el)}>
-            <div className="reviews">
+            <div className="reviews flex">
               <h1 className="banner_stars">
                 {/* <Rating readonly stop="5"  initialRating={Math.floor(movie?.vote_average /2)} /> */}
               </h1>
@@ -213,7 +213,7 @@ function Banner() {
         </div>
 
         <h1
-          className="banner__description overflow-hidden mb-10 pb-9 w-auto"
+          className="banner__description text-base overflow-hidden mb-10 pb-9 h-auto w-1/4"
           ref={(el) => (description = el)}
         >
           {truncate(movie?.overview, 250)}
@@ -223,16 +223,22 @@ function Banner() {
             style={{ textDecoration: "none", color: "white" }}
             to={`/movie/${movie.id}`}
           >
-            <button className="banner__button" ref={(el) => (button1 = el)}>
+            <button
+              className="banner__button ml-5 bg-red-600 rounded-lg text-white px-3 py-2"
+              ref={(el) => (button1 = el)}
+            >
               Play
             </button>
           </Link>
-          <button className="banner__button" ref={(el) => (button = el)}>
+          <button
+            className="banner__button ml-5 bg-red-600 rounded-lg text-white px-3 py-2"
+            ref={(el) => (button = el)}
+          >
             My List
           </button>
         </div>
       </div>
-      <div className="banner__fadeBottom"></div>
+      <div className="banner__fadeBottom absolute  inset-0	 h-screen -w-screen z-10 bg-gradient-to-r from-gray-800"></div>
     </header>
   );
 }
