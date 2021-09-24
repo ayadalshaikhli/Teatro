@@ -1,26 +1,26 @@
-.movie__details {
+/* .movie__details {
   color: white;
   background-color: #111;
   height: 200vh;
 }
 .poster {
-  /* display: flex; */
   justify-content: space-between;
-}
-.large__poster {
+} */
+/* display: flex; */
+
+/* .large__poster {
   position: absolute;
   top: 0;
   left: 0;
   object-fit: cover;
   color: white;
-  /* object-fit: contain; */
   max-height: 99vh;
   width: 100%;
   z-index: 1;
-  
- 
-}
-.background-blur{
+} */
+/* object-fit: contain; */
+
+/* .background-blur {
   background-color: rgba(0, 0, 0, 0.692);
   position: absolute;
   top: 0;
@@ -28,7 +28,6 @@
   width: 99vw;
   height: 99vh;
   z-index: 2;
-
 }
 .details__fadeBottomm {
   height: 70vh;
@@ -61,13 +60,13 @@
   padding-left: 2rem;
 }
 
-.banner__description{
+.banner__description {
   color: white;
   width: auto;
   height: 10px;
-}
+} */
 /* Movie OverView */
-.movie__overview{
+/* .movie__overview {
   display: flex;
   position: absolute;
   top: 0;
@@ -77,48 +76,45 @@
   padding-top: 50px;
 }
 
-
-.poster__overview{
+.poster__overview {
   width: auto;
   height: 50vh;
   margin-left: 200px;
   border-radius: 10px;
   padding-top: 20px;
 }
-.movie_story h1{
+.movie_story h1 {
   font-size: 0.8rem;
   padding-bottom: 40px;
   padding-left: 100px;
-  text-align:left ;
+  text-align: left;
   width: 300px;
 }
 
-
-.movie_information{
+.movie_information {
   display: flex;
-  text-align:left;
+  text-align: left;
 }
-.movie_information h1{
+.movie_information h1 {
   font-size: 1.2rem;
   padding-bottom: 20px;
   padding-left: 100px;
 }
 
-.movie_info h1{
+.movie_info h1 {
   font-size: 1.2rem;
   padding-bottom: 20px;
   padding-left: 100px;
 }
 
-.movie_api_info h1{
+.movie_api_info h1 {
   font-size: 1.2rem;
   padding-bottom: 20px;
   padding-left: 100px;
-}
-
+} */
 
 /* Cast */
-.cast-details {
+/* .cast-details {
   display: flex;
   justify-content: center;
   padding-top: 1200px;
@@ -127,11 +123,11 @@
   object-fit: contain;
   width: 100%;
   max-height: 40vh;
-  /* margin-right: 10px; */
   transition: transform 450ms;
   padding: 0;
-}
-
+} */
+/* margin-right: 10px; */
+/* 
 .row__cast {
   margin-left: 30px;
 }
@@ -157,9 +153,9 @@
   margin-right: 1rem;
   margin-bottom: 20px;
   margin-left: 100px;
- 
+
   padding-top: 0.5rem;
-  background-color: #D01926;
+  background-color: #d01926;
   padding-bottom: 0.5rem;
 }
 
@@ -169,7 +165,7 @@
   transition: all 0.2s;
 }
 
-.video{
+.video {
   height: 100vh;
   width: 100%;
-}
+} */

@@ -164,7 +164,7 @@ function Banner() {
 
   return (
     <header
-      className="banner relative hidden md:block lg:flex  bg-cover h-screen bg-auto bg-center-center bg-no-repeat"
+      className="banner text-white relative hidden md:block lg:flex  bg-cover h-screen bg-auto bg-center-center bg-no-repeat"
       ref={(el) => (background = el)}
       style={{
         backgroundImage: `url(${base_url}${movie?.backdrop_path}

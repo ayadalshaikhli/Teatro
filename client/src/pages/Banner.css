@@ -111,6 +111,9 @@
   background-color: #e6e6e6;
   transition: all 0.2s;
 }
+
+
+
 .banner__fadeBottom {
   height: 100vh;
   margin-top: -460px;

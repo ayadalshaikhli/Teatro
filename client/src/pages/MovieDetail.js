@@ -177,74 +177,84 @@ function MovieDetail({ match }) {
   };
 
   return (
-    <div className="movie__details">
-      <div className="background-blur"></div>
-      <div className="poster">
-        <div className="movie__info">
-          <div
-            className="movie__overview"
-            ref={(el) => (movieOverAnimation = el)}
-          >
+    <div className="movie__details font-mono text-xl">
+      <div className="poster text-white ">
+        <div
+          className="movie__info relative bg-cover bg-center-center h-screen"
+          style={{
+            backgroundImage: `url(${base_url}${movie?.backdrop_path}
+            )`,
+          }}
+        >
+          <div className="inf z-20 absolute top-1/4 left-1/4">
             <div
-              className="small_poster"
-              ref={(el) => (smallPosterAnimation = el)}
+              className="movie__overview flex"
+              ref={(el) => (movieOverAnimation = el)}
             >
-              <img
-                key={movie.id}
-                className="poster__overview"
-                src={`${base_url}${movie.poster_path}`}
-                alt={movie.name}
-              />
-            </div>
-            <div className="movie_story" ref={(el) => (titleAnimation = el)}>
-              <h1>{movie.original_title}</h1>
-              <h1 className="description">{truncate(movie.overview, 250)}</h1>
-
-              <h1>
-                {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}min
-              </h1>
-
-              <button
-                className="trailer__button"
-                onClick={() => handleClick(movie)}
+              <div
+                className="small_poster mr-20"
+                ref={(el) => (smallPosterAnimation = el)}
               >
-                Watch Trailer
-              </button>
-              <button
-                className="trailer__button movie__button"
-                onClick={() => {
-                  fetchQuery(movie);
-                  setIsOpen(true);
-                }}
-              >
-                {queryStatus}
-                {/* <button  className="trailer__button movie__button" onClick={() => setIsOpen(true)}></button> */}
-              </button>
-              {/* Check to see if any items are found*/}
+                <img
+                  key={movie.id}
+                  className="poster__overview w-96 h-auto mt-7"
+                  src={`${base_url}${movie.poster_path}`}
+                  alt={movie.name}
+                />
+              </div>
+              <div className="movie_story" ref={(el) => (titleAnimation = el)}>
+                <h1>{movie.original_title}</h1>
+                <h1 className="description text-sm overflow-hidden  pb-9 h-auto w-1/4">
+                  {truncate(movie.overview, 250)}
+                </h1>
 
-              <div className="movie_information">
-                <div className="movie_info">
-                  <h1>Released </h1>
-                  <h1>Budget </h1>
-                  <h1>Revenue </h1>
-                  <h1>Status</h1>
-                  <h1>Runtime</h1>
-                  <h1>Genre </h1>
-                </div>
-                <div className="movie_api_info">
-                  <h1>{movie.release_date}</h1>
-                  <h1>${movie.budget}</h1>
-                  <h1>${movie.revenue}</h1>
-                  <h1>{movie.status}</h1>
-                  <h1>
-                    {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}min
-                  </h1>
-                  {/* <h1>{movie.genres[0].name}, {movie.genres[1].name}</h1> */}
+                <h1>
+                  {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}min
+                </h1>
+
+                <button
+                  className="trailer__button  bg-red-600 rounded-lg text-white px-3 py-2"
+                  onClick={() => handleClick(movie)}
+                >
+                  Watch Trailer
+                </button>
+                <button
+                  className="trailer__button movie__button ml-10 bg-red-600 rounded-lg text-white px-3 py-2"
+                  onClick={() => {
+                    fetchQuery(movie);
+                    setIsOpen(true);
+                  }}
+                >
+                  {queryStatus}
+                  {/* <button  className="trailer__button movie__button" onClick={() => setIsOpen(true)}></button> */}
+                </button>
+                {/* Check to see if any items are found*/}
+
+                <div className="movie_information flex mt-5">
+                  <div className="movie_info ">
+                    <h1>Released </h1>
+                    <h1>Budget </h1>
+                    <h1>Revenue </h1>
+                    <h1>Status</h1>
+                    <h1>Runtime</h1>
+                    <h1>Genre </h1>
+                  </div>
+                  <div className="movie_api_info pl-48">
+                    <h1>{movie.release_date}</h1>
+                    <h1>${movie.budget}</h1>
+                    <h1>${movie.revenue}</h1>
+                    <h1>{movie.status}</h1>
+                    <h1>
+                      {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}min
+                    </h1>
+                    {/* <h1>{movie.genres[0].name}, {movie.genres[1].name}</h1> */}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div className="background-blur absolute z-10 inset-0	 h-screen -w-screen z-10 bg-gradient-to-r from-gray-900"></div>
         <Model open={isOpen} onClose={() => setIsOpen(false)}>
           {queryResult.length ? (
             <div>
@@ -278,7 +288,7 @@ function MovieDetail({ match }) {
             </div>
           )}
         </Model>
-        <div className="cast-details">
+        <div className="cast-details hidden">
           <div className="cast">
             <h1>Cast</h1>
           </div>
@@ -288,6 +298,7 @@ function MovieDetail({ match }) {
               to={`/person/${credit.id}`}
             >
               <div className="row__cast">
+                =
                 <div className="img__cast">
                   <img
                     // onClick={() => handleClick(movie)}
@@ -307,7 +318,7 @@ function MovieDetail({ match }) {
               background: "cover",
               backgroundPosition: "center center",
             }}
-            className="large__poster"
+            className="large__poster hidden"
             src={`${base_url}${movie.backdrop_path || movie.poster_path}`}
             alt={movie.name}
             ref={(el) => (laragePosterAnimation = el)}
